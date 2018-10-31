@@ -10,19 +10,20 @@ function numberArr (arg) {
 	return arr;
 }
 
-function min () {
-	let minValue;
+function min (numbersArray = []) {
+	// let minValue;
 
-	if (arguments.length && arguments[0].length) {
-		let array = numberArr(arguments[0]);
+	// if (arguments.length && arguments[0].length) {
+	// 	let array = numberArr(arguments[0]);
 
-		if (array.length) {
-			minValue = array.reduce((minItem, current) => (minItem < current ? minItem : current));
-		}
+	// 	if (array.length) {
+	// 		minValue = array.reduce((minItem, current) => (minItem < current ? minItem : current));
+	// 	}
 
-	}
+	// }
 
-	return minValue;
+	// return minValue;
+	return numbersArray.filter(number => typeof number === 'number').reduce((result, item) => item < result);   
 }
 
 function max () {
@@ -59,4 +60,6 @@ function sum () {
 
 }
 
-export { min, max, sum };
+console.log(min([5, 8, 10, 7, -6]));
+
+// export { min, max, sum };
