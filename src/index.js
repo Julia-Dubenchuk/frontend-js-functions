@@ -10,23 +10,29 @@ function numberArr (arg) {
 	return arr;
 }
 
-function min (numbersArray = []) {
-	// let minValue;
-
-	// if (arguments.length && arguments[0].length) {
-	// 	let array = numberArr(arguments[0]);
-
-	// 	if (array.length) {
-	// 		minValue = array.reduce((minItem, current) => (minItem < current ? minItem : current));
-	// 	}
-
-	// }
-
-	// return minValue;
-	return numbersArray.filter(number => typeof number === 'number').reduce((result, item) => item < result);   
+function isNumber (item) {
+	return typeof item === 'number';
 }
 
-function max () {
+function getGreater (minNumber, currentNumber) {
+	return minNumber < currentNumber ? minNumber : currentNumber;
+}
+
+function min (numbersArray = []) {
+	// export function max (numbers = []) {
+	// 	return numbers
+	// 	   .filter(isNumber)
+	// 	   .reduce(getGreater, undefined);
+	//  }
+	return numbersArray.length ?
+		numbersArray.filter(item => isNumber(item)).reduce((minNumber, currentNumber) => getGreater(minNumber, currentNumber));
+
+	// .reduce((result, item) => item < result);
+}
+
+console.log(min(0, 8, -5, 1, 2));
+
+function max (...abcouhk) {
 	let maxValue;
 
 	if (arguments.length && arguments[0].length) {
@@ -60,6 +66,42 @@ function sum () {
 
 }
 
-console.log(min([5, 8, 10, 7, -6]));
+function average (numbers) {
+	let result = numbers[0];
+	let index;
+
+	for (index = 1; index < numbers.length; index += 1) {
+		console.log(numbers[index]);
+		result += numbers[index];
+	}
+	result /= numbers.length;
+	return result;
+}
+
+let human = {
+	name: 'Ivan',
+	age: 23
+};
+
+let property;
+
+for (property in human) {
+	console.log(property, human[property]);
+}
+
+let averageValue = average([22, 55, 3, 5, 1, 4]);
+
+let arrayA = [1, 2, 3];
+let arrayB = [1, 2, 3];
+let arrayC = arrayA;
+
+if (arrayA === arrayC) {
+	console.log(true);
+}
+
+console.log(`average: ${averageValue}`);
+
+console.log(min(['max', 8, 10, 7, -6]));
+console.log(min());
 
 // export { min, max, sum };
