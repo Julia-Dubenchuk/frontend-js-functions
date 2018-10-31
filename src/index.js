@@ -56,16 +56,4 @@ function sum () {
 
 }
 
-// export { min, max, sum };
-
-console.log(min([7, 8, 9, 5, 1]));
-console.log(min());
-console.log(min(['j', 'k', 's', 'd']));
-console.log(min([-5, 3, 's', 'd']));
-console.log(min([5.5, 0.3, null, true]));
-console.log(max([7, 8, 9, 5, 1]));
-console.log(max());
-console.log(max([2, 2, 2, 2, 2]));
-console.log(sum(7, 8, 9, 5, 1));
-console.log(sum());
-console.log(min([7, 8, 9, 0, 1]));
+export { min, max, sum };
