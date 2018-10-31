@@ -5,7 +5,7 @@ function numberArr (arg) {
 		arrayArg[i] = arg[i];
 	}
 
-	let arr = arrayArg.filter(item => (typeof item === 'number' ? item : 0));
+	let arr = arrayArg.filter(item => typeof item === 'number');
 
 	return arr;
 }
@@ -68,3 +68,4 @@ console.log(max());
 console.log(max([2, 2, 2, 2, 2]));
 console.log(sum(7, 8, 9, 5, 1));
 console.log(sum());
+console.log(min([7, 8, 9, 0, 1]));
