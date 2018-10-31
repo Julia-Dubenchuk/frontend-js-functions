@@ -50,10 +50,11 @@ function sum () {
 			sumValue = arr.reduce((sumItem, current) => sumItem + current);
 		}
 
+	} else {
+		sumValue = 0;
 	}
 
 	return sumValue;
 
 }
-
 export { min, max, sum };
