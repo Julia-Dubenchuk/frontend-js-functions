@@ -1,61 +1,33 @@
-function numberArr (arg) {
-	let arrayArg = [];
-
-	for (let i = 0; i < arg.length; i++) {
-		arrayArg[i] = arg[i];
-	}
-
-	let arr = arrayArg.filter(item => typeof item === 'number');
-
-	return arr;
+function isNumber (item) {
+	return typeof item === 'number';
 }
 
-function min () {
-	let minValue;
-
-	if (arguments.length && arguments[0].length) {
-		let array = numberArr(arguments[0]);
-
-		if (array.length) {
-			minValue = array.reduce((minItem, current) => (minItem < current ? minItem : current));
-		}
-
-	}
-
-	return minValue;
+function getLess (minNumber, currentNumber) {
+	return minNumber < currentNumber ? minNumber : currentNumber;
 }
 
-function max () {
-	let maxValue;
-
-	if (arguments.length && arguments[0].length) {
-		let arr = numberArr(arguments[0]);
-
-		if (arr.length) {
-			maxValue = arr.reduce((maxItem, current) => (maxItem > current ? maxItem : current));
-		}
-
-	}
-
-	return maxValue;
+function getGreater (maxNumber, currentNumber) {
+	return maxNumber > currentNumber ? maxNumber : currentNumber;
 }
 
-function sum () {
-	let sumValue;
+function getSum (number, currentNumber) {
+	return number + currentNumber;
+}
 
-	if (arguments.length) {
-		let arr = numberArr(arguments);
+function min (numbersArray = []) {
+	return numbersArray.filter(isNumber)
+		.reduce(getLess, undefined);
 
-		if (arr.length) {
-			sumValue = arr.reduce((sumItem, current) => sumItem + current);
-		}
+}
 
-	}
-	else {
-		sumValue = 0;
-	}
+function max (numbersArray = []) {
+	return numbersArray.filter(isNumber)
+		.reduce(getGreater, undefined);
+}
 
-	return sumValue;
+function sum (...numbersArray) {
+	return numbersArray.filter(isNumber)
+		.reduce(getSum, 0);
 
 }
 
