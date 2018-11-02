@@ -18,19 +18,36 @@ function getGreater (minNumber, currentNumber) {
 	return minNumber < currentNumber ? minNumber : currentNumber;
 }
 
-function min (numbersArray = []) {
+function isEmpty (numbers) {
+	return numbers.length > 0;
+}
+
+function min (...numbersArray) {
 	// export function max (numbers = []) {
 	// 	return numbers
 	// 	   .filter(isNumber)
 	// 	   .reduce(getGreater, undefined);
 	//  }
-	return numbersArray.length ?
-		numbersArray.filter(item => isNumber(item)).reduce((minNumber, currentNumber) => getGreater(minNumber, currentNumber));
+	// return isEmpty(numbersArray) ?
+	// 	numbersArray.filter(item => isNumber(item))
+	// 	.reduce((minNum, currentNum) => getGreater(minNum, currentNum)) :
+	// 	undefined;
+
+	// return isEmpty(numbersArray) ?
+	// 	numbersArray.filter(isNumber)
+	// 	.reduce(getGreater) :
+	// 	undefined;
+
+	return numbersArray.filter(isNumber)
+		.reduce(getGreater, undefined);
+
+	// .reduce((minNumber, currentNumber) => getGreater(minNumber, currentNumber));
 
 	// .reduce((result, item) => item < result);
 }
 
-console.log(min(0, 8, -5, 1, 2));
+console.log(min(0, 8, -5, 1, 2, 'kjh', 'klk'));
+console.log(min([]));
 
 function max (...abcouhk) {
 	let maxValue;
